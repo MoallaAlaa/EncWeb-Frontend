@@ -1,22 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const API_URL = 'http://localhost:8080/api/test/';
+import { User } from '../models/user.model';
+const API = 'http://localhost:8080/api/cheque';
+const GETONE='http://localhost:8080/api/userCrud/agentById';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   constructor(private http: HttpClient) { }
-  getSclienteleBoard(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
+  
+
+  getUserById(id: any):Observable<User>{
+    
+    return this.http.get<User>(`${GETONE}/${id}`);
+
   }
-  getAgenceBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
+  
+  addCheque(f : FormData){
+    return this.http.post(`${API}/addCheque`, f);
   }
-  getEncaissementBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
+
+  finJournee(){
+    return this.http.get(API+'/finJournee');
   }
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+
+  getBordereauxListAenvoyees():Observable<any>{
+    return this.http.get<any[]>(`${API}/ChequesAenvoyer`);
   }
+
+
 }

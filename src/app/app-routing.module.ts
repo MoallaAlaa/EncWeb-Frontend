@@ -4,9 +4,11 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardAgenceComponent } from './board-agence/board-agence.component';
 import { BoardEncaissementComponent } from './board-encaissement/board-encaissement.component';
 import { BoardSclienteleComponent } from './board-sclientele/board-sclientele.component';
+import { FinJourneeComponent } from './fin-journee/fin-journee.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SaisieChequeComponent } from './saisie-cheque/saisie-cheque.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,7 +18,11 @@ const routes: Routes = [
   { path: 'encaissement', component: BoardEncaissementComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'sclientele', component: BoardSclienteleComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: 'saisie-cheque', component: SaisieChequeComponent },
+  { path: 'fin-journee', component: FinJourneeComponent },
+
+
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

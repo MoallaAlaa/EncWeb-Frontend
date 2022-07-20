@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-board-agence',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardAgenceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+finJournee():void {
+  this.router.navigate(['/fin-journee']);
+}
 }

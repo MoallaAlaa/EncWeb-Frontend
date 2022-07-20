@@ -1,0 +1,29 @@
+
+<div class="container" style="margin-top: 250px;">
+   
+      <h2>Fin Journée</h2>
+      <div id="content">
+      <table class="table" id="contentToConvert">
+        <thead>
+          <tr>
+            <th>Numéros de bordereaux de remise des chèques </th>
+            <th>Nombre de cheques</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let b of bx  let i = index ">
+            <td>{{b.numBordereaux}}</td>
+            <td>{{b.nbrCheques}}</td>
+          </tr>
+          <tr>
+            <td>totale : {{totalRows}} </td>
+            <td>totale : {{total}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align: center;" data-html2canvas-ignore="true">
+        <input type="button" value="Convert" (click)="convetToPDF()" />
+      </div>
+  </div>

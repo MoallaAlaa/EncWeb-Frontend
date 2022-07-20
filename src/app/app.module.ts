@@ -12,6 +12,8 @@ import { BoardAgenceComponent } from './board-agence/board-agence.component';
 import { BoardEncaissementComponent } from './board-encaissement/board-encaissement.component';
 import { BoardSclienteleComponent } from './board-sclientele/board-sclientele.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { SaisieChequeComponent } from './saisie-cheque/saisie-cheque.component';
+import { FinJourneeComponent } from './fin-journee/fin-journee.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     BoardAdminComponent,
     BoardAgenceComponent,
     BoardEncaissementComponent,
-    BoardSclienteleComponent
+    BoardSclienteleComponent,
+    SaisieChequeComponent,
+    FinJourneeComponent
   ],
   imports: [
     BrowserModule,
