@@ -14,6 +14,10 @@ import { BoardSclienteleComponent } from './board-sclientele/board-sclientele.co
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { SaisieChequeComponent } from './saisie-cheque/saisie-cheque.component';
 import { FinJourneeComponent } from './fin-journee/fin-journee.component';
+import { ListeChequesRouteEncaissementComponent } from './liste-cheques-route-encaissement/liste-cheques-route-encaissement.component';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,15 +30,18 @@ import { FinJourneeComponent } from './fin-journee/fin-journee.component';
     BoardEncaissementComponent,
     BoardSclienteleComponent,
     SaisieChequeComponent,
-    FinJourneeComponent
+    FinJourneeComponent,
+    ListeChequesRouteEncaissementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxImageZoomModule,
+    NgxPaginationModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

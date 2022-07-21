@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
+import { ChequeService } from '../_services/cheque.service';
 
 @Component({
   selector: 'app-fin-journee',
@@ -13,10 +14,10 @@ export class FinJourneeComponent implements OnInit {
   total=0;    
   value?:any; 
   title = 'Liste Bordereaux';
-   constructor(private userService: UserService) { }
+   constructor(private chequeService: ChequeService) { }
 
   ngOnInit(): void {
-    this.userService.getBordereauxListAenvoyees().subscribe({next:(data)=> {
+    this.chequeService.getBordereauxListAenvoyees().subscribe({next:(data)=> {
     this.bx=data;
     this.findsum(this.bx);
     console.log(data);
@@ -43,6 +44,7 @@ export class FinJourneeComponent implements OnInit {
   
 public convetToPDF()
 {
+  
 html2canvas(document.body).then(canvas => {
 // Few necessary setting options
 var imgWidth = 208;
@@ -54,8 +56,13 @@ const contentDataURL = canvas.toDataURL('image/png')
 let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
 var position = 0;
 pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-pdf.save('new-file.pdf'); // Generated PDF
+pdf.save('new-file.pdf');
+ // Generated PDF
 });
+}
+
+changerStatue(){
+  this.chequeService.finJournee().subscribe();
 }
 
 

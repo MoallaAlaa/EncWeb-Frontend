@@ -15,4 +15,8 @@ export class BoardAgenceComponent implements OnInit {
 finJournee():void {
   this.router.navigate(['/fin-journee']);
 }
+
+chequesEnRouteEncaissement():void {
+  this.router.navigate(['/chequesEnRouteEncaissement']);
+}
 }
