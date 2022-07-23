@@ -38,21 +38,26 @@ this.chequeService.getListeChequesEnRoute().subscribe({
   calculateDiff(sentOn:any){
 
     let todayDate = new Date();
-    
-
     const [day,month, year] = sentOn.split('-');
-
     let sentOnDate = new Date(+year,+month-1,+day);
-    
-
-
     let differenceInTime = todayDate.getTime() - sentOnDate.getTime();
     // To calculate the no. of days between two dates
     let differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24)); 
     return differenceInDays;
 }
 
-    
+getColor(sentOn:any) { 
+  let delay = this.calculateDiff(sentOn);
+  if ((delay>2) &&(delay<=5)) {
+    return 'orange';
+  }
+  else if(delay>5){
+    return 'red';
+  }
+  else 
+   return 'white';
+
+}
 	 
     
       

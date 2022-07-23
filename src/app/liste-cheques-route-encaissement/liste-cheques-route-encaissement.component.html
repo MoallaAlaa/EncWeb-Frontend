@@ -19,7 +19,8 @@
             currentPage: page,
             totalItems: count
           };
-              let i = index" >
+          
+              let i = index" [ngStyle]="{'background-color':getColor(cheque?.bordereaux?.dateBordereaux)}" >
             
             <td>{{ cheque?.bordereaux?.numBordereaux}}</td>
             <td>{{ cheque?.numCheque }}</td>
@@ -28,7 +29,7 @@
             <td><img src="http://localhost:8080/api/files/{{ cheque.imgCheque.id}}"  class="img-circle img-size-32 mr-2" style="width:200px;height:105px;"></td>
             <td>{{ cheque?.bordereaux?.dateBordereaux }}</td>
             
-            <td>{{ calculateDiff(cheque?.bordereaux?.dateBordereaux )}}</td>
+            <td>{{ calculateDiff(cheque?.bordereaux?.dateBordereaux)}}</td>
             
       
             
