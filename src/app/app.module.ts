@@ -18,7 +18,7 @@ import { ListeChequesRouteEncaissementComponent } from './liste-cheques-route-en
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
-
+import { SaisirChequesComponent } from './saisir-cheques/saisir-cheques.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,8 @@ import { DatePipe } from '@angular/common';
     BoardSclienteleComponent,
     SaisieChequeComponent,
     FinJourneeComponent,
-    ListeChequesRouteEncaissementComponent
+    ListeChequesRouteEncaissementComponent,
+    SaisirChequesComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { ListeChequesRouteEncaissementComponent } from './liste-cheques-route-en
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SaisieChequeComponent } from './saisie-cheque/saisie-cheque.component';
+import { SaisirChequesComponent } from './saisir-cheques/saisir-cheques.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'saisie-cheque', component: SaisieChequeComponent },
   { path: 'fin-journee', component: FinJourneeComponent },
   { path: 'chequesEnRouteEncaissement', component: ListeChequesRouteEncaissementComponent },
+  { path: 'saisirChequesComponent', component: SaisirChequesComponent },
 
 
   { path: '', redirectTo: '/login', pathMatch: 'full' }
