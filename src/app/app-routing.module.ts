@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ListeChequesRouteEncaissementComponent } from './liste-cheques-route-encaissement/liste-cheques-route-encaissement.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { SaisieChequeComponent } from './saisie-cheque/saisie-cheque.component';
+import { SaisirBordereauComponent } from './saisir-bordereau/saisir-bordereau.component';
 import { SaisirChequesComponent } from './saisir-cheques/saisir-cheques.component';
 
 const routes: Routes = [
@@ -20,11 +20,10 @@ const routes: Routes = [
   { path: 'encaissement', component: BoardEncaissementComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'sclientele', component: BoardSclienteleComponent },
-  { path: 'saisie-cheque', component: SaisieChequeComponent },
   { path: 'fin-journee', component: FinJourneeComponent },
   { path: 'chequesEnRouteEncaissement', component: ListeChequesRouteEncaissementComponent },
   { path: 'saisirChequesComponent', component: SaisirChequesComponent },
-
+  { path: 'saisirBordereauComponent', component: SaisirBordereauComponent },
 
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];

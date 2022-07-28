@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SaisieChequeComponent } from './saisie-cheque.component';
+import { SaisirBordereauComponent } from './saisir-bordereau.component';
 
-describe('SaisieChequeComponent', () => {
-  let component: SaisieChequeComponent;
-  let fixture: ComponentFixture<SaisieChequeComponent>;
+describe('SaisirBordereauComponent', () => {
+  let component: SaisirBordereauComponent;
+  let fixture: ComponentFixture<SaisirBordereauComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SaisieChequeComponent ]
+      declarations: [ SaisirBordereauComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SaisieChequeComponent);
+    fixture = TestBed.createComponent(SaisirBordereauComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

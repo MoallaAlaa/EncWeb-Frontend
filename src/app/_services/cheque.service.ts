@@ -17,6 +17,10 @@ export class ChequeService {
     return this.http.post(`${API_URL}/addCheque`,f);
   }
 
+  addCheque2(f : FormData){
+    return this.http.post(`${API_URL}/addCheque2`,f);
+  }
+
   finJournee(){
     return this.http.get(API_URL+'/finJournee');
   }

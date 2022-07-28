@@ -1,0 +1,134 @@
+
+<div class="container"  novalidate>
+    <form [formGroup]="bordereauForm"
+          (ngSubmit)="onSubmit(bordereauForm.value, bordereauForm.valid)"
+          class="form"
+          novalidate>
+      
+          <div class="d-flex flex-column mb-8 fv-row">
+            <label class="d-flex align-items-center mb-2">
+                <span class="text-gray-700 fs-6 fw-bolder required">Numero Bordereau</span>
+            </label>
+        <input
+          
+          placeholder="numBordereaux"
+          formControlName="numBordereaux"
+        />
+        <div *ngIf="numBordereaux.invalid && isSubmitted">
+          <div [hidden]="!numBordereaux.errors.required">
+            Numero Bordereau is required
+          </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column mb-8 fv-row">
+        <label class="d-flex align-items-center mb-2">
+            <span class="text-gray-700 fs-6 fw-bolder required">Date Bordereau</span>
+        </label>
+    <input
+    [ngModel]="theDate | date:'dd-MM-yyyy'" 
+    (ngModelChange)="theDate = $event" type="date" 
+      formControlName="dateBordereaux"
+    />
+    <div *ngIf="dateBordereaux.invalid && isSubmitted">
+      <div [hidden]="!dateBordereaux.errors.required">
+        Numero Bordereau is required
+      </div>
+    </div>
+</div>
+  
+     
+      <!-- nested form array with form group -->
+      <div formArrayName="cheques">
+        <span class="fill-remaining-space">Cheque</span>
+        <button
+          color="primary"
+          type="button"
+          (click)="addContactField()"
+        >
+          Add Contact
+        </button>
+        <button
+          color="warn"
+          type="button"
+          (click)="removeContactField()"
+        >
+          Remove Last Contact
+        </button>
+        <table class="full-width" cellspacing="0">
+          <tr
+            *ngFor="let contact of cheques.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <td>
+              <div class="d-flex flex-column mb-8 fv-row">
+
+                <label class="d-flex align-items-center mb-2">
+                    <span class="text-gray-700 fs-6 fw-bolder required">Numero Cheque</span>
+                </label>
+                <input  placeholder="Numero Cheque" formControlName="numCheque" />
+                
+            </div>
+
+            </td>
+
+            <td>
+              <div class="d-flex flex-column mb-8 fv-row">
+                <label class="d-flex align-items-center mb-2">
+                    <span class="text-gray-700 fs-6 fw-bolder required">Montant</span>
+                </label>
+                <input  type="number" placeholder="Montant" formControlName="montant" />
+            </div>
+            
+        </td>
+<td>
+
+    <div class="d-flex flex-column mb-8 fv-row">
+        <label class="d-flex align-items-center mb-2">
+            <span class="text-gray-700 fs-6 fw-bolder required">Devise</span>
+        </label>
+        <select formControlName="devise"  >
+            <option *ngFor="let devise of devises" [ngValue]="devise">
+                {{devise.label}}
+            </option>
+        </select>
+    </div>
+
+</td>
+
+            <td>
+              <div>
+                <div class="row">
+                  <div
+                    class="
+                      col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1
+                    "
+                  >
+                    <div class="form-group">
+                      <input
+                        type="file"
+                        class="custom-file-input form-control"
+                        id="files"
+                        multiple
+                        (change)="detectFiles($event, i)"
+                        accept="image/x-png,image/jpeg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+  
+      <div class="form-element">
+        <button  color="primary" type="submit" class="button">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  
+  
