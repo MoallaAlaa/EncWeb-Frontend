@@ -19,4 +19,8 @@ finJournee():void {
 chequesEnRouteEncaissement():void {
   this.router.navigate(['/chequesEnRouteEncaissement']);
 }
+
+SaisirChequesForm():void {
+  this.router.navigate(['/saisirBordereauComponent']);
+}
 }
