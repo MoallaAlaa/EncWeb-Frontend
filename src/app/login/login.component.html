@@ -3,7 +3,7 @@
 
   <div class="wrapper">
     <div class="logo">
-        <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="">
+        <img src="https://upload.wikimedia.org/wikipedia/fr/7/74/Logo_biat_2019.jpg" alt="">
     </div>
     <div class="text-center mt-4 name">
     S'authentifier
@@ -17,7 +17,7 @@
     novalidate
   >
     <div class="form-field d-flex align-items-center">
-      <label for="username">Username</label>
+      <span class="far fa-user"></span> 
       <input
         type="text"
         class="form-control"
@@ -25,6 +25,7 @@
         [(ngModel)]="form.username"
         required
         #username="ngModel"
+        id="userName" placeholder="Matricule"
       />
       <div
         class="alert alert-danger"
@@ -35,7 +36,7 @@
       </div>
     </div>
     <div class="form-field d-flex align-items-center">
-      <label for="password">Password</label>
+      <span class="fas fa-key"></span>
       <input
         type="password"
         class="form-control"
@@ -44,6 +45,7 @@
         required
         minlength="6"
         #password="ngModel"
+        id="pwd" placeholder="Mot de passe"
       />
       <div
         class="alert alert-danger"

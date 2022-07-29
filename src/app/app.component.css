@@ -13,3 +13,13 @@
     position: relative;
     left: 0;
   }
+
+  .navbar-custom {
+    background-color: #e9e4e1;
+}
+
+nav{
+  font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    background: #FFF;
+}
