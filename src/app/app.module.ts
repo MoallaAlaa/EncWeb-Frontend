@@ -17,11 +17,12 @@ import { ListeChequesRouteEncaissementComponent } from './liste-cheques-route-en
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
-import { SaisirChequesComponent } from './saisir-cheques/saisir-cheques.component';
 import { SaisirBordereauComponent } from './saisir-bordereau/saisir-bordereau.component';
 import { ListeChequesRejetesEncaissementComponent } from './liste-cheques-rejetes-encaissement/liste-cheques-rejetes-encaissement.component';
 import { ListeChequesRecuEncaissementComponent } from './liste-cheques-recu-encaissement/liste-cheques-recu-encaissement.component';
 import { ListeChequesTraitesEncaissementComponent } from './liste-cheques-traites-encaissement/liste-cheques-traites-encaissement.component';
+import { RechercheRemisesChequesComponent } from './recherche-remises-cheques/recherche-remises-cheques.component';
+import { SearchPipe } from './recherche-remises-cheques/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,11 +35,12 @@ import { ListeChequesTraitesEncaissementComponent } from './liste-cheques-traite
     BoardSclienteleComponent,
     FinJourneeComponent,
     ListeChequesRouteEncaissementComponent,
-    SaisirChequesComponent,
     SaisirBordereauComponent,
     ListeChequesRejetesEncaissementComponent,
     ListeChequesRecuEncaissementComponent,
-    ListeChequesTraitesEncaissementComponent
+    ListeChequesTraitesEncaissementComponent,
+    RechercheRemisesChequesComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

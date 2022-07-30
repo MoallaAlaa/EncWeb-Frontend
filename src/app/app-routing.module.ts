@@ -7,10 +7,11 @@ import { BoardSclienteleComponent } from './board-sclientele/board-sclientele.co
 import { FinJourneeComponent } from './fin-journee/fin-journee.component';
 import { HomeComponent } from './home/home.component';
 import { ListeChequesRouteEncaissementComponent } from './liste-cheques-route-encaissement/liste-cheques-route-encaissement.component';
+import { ListeChequesTraitesEncaissementComponent } from './liste-cheques-traites-encaissement/liste-cheques-traites-encaissement.component';
 import { LoginComponent } from './login/login.component';
+import { RechercheRemisesChequesComponent } from './recherche-remises-cheques/recherche-remises-cheques.component';
 import { RegisterComponent } from './register/register.component';
 import { SaisirBordereauComponent } from './saisir-bordereau/saisir-bordereau.component';
-import { SaisirChequesComponent } from './saisir-cheques/saisir-cheques.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,9 +23,9 @@ const routes: Routes = [
   { path: 'sclientele', component: BoardSclienteleComponent },
   { path: 'fin-journee', component: FinJourneeComponent },
   { path: 'chequesEnRouteEncaissement', component: ListeChequesRouteEncaissementComponent },
-  { path: 'saisirChequesComponent', component: SaisirChequesComponent },
-  { path: 'saisirBordereauComponent', component: SaisirBordereauComponent },
-
+  { path: 'saisirBordereau', component: SaisirBordereauComponent },
+  { path: 'listeChequesTraitesEncaissement', component:ListeChequesTraitesEncaissementComponent},
+  { path: 'RechercheRemisesCheques', component:RechercheRemisesChequesComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 @NgModule({

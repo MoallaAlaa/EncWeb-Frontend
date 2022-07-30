@@ -21,6 +21,6 @@ chequesEnRouteEncaissement():void {
 }
 
 SaisirChequesForm():void {
-  this.router.navigate(['/saisirBordereauComponent']);
+  this.router.navigate(['/saisirBordereau']);
 }
 }

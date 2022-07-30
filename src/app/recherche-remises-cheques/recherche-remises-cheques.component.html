@@ -1,0 +1,73 @@
+
+<div class="container">
+    <h3>Recherche Remise/chéques</h3>
+
+    <div>
+<label for="numBordereau">Numéro Bordereau</label>
+<input type="text" id="numBordereau" [formControl]="numBordereau"/>
+<label for="numCheque">Numéro Chéque </label>
+<input type="text" id="numCheque" [formControl]="numCheque"/>
+<label for="dateBordereau">Date Bordereau</label>
+<input type="text" id="dateBordereau" [formControl]="dateBordereau"/>
+<label for="numCompte">Numéro Compte Client </label>
+<input type="text" id="numCompte" [formControl]="numCompte"/>
+<label for="montant">Montant  </label>
+<input type="text" id="montant" [formControl]="montant"/>
+<label for="devise">Devise  </label>
+<input type="text" id="devise" [formControl]="devise"/>
+
+    </div>
+
+    <body>
+      <table class="table table-striped table-valign-middle">
+        <thead>
+          <tr>
+            <th scope="col">N°chéque</th>
+            <th scope="col">N°bordereau</th>
+            <th scope="col">Date de Bordereau</th>
+            <th scope="col">N°Compte</th>
+            <th scope="col">Nom Client</th>
+            <th scope="col">Code Agence</th>
+            <th scope="col">Date Ouverture</th>
+            <th scope="col">Devise</th>
+            <th scope="col">Montant</th>
+            <th scope="col">Etat</th>
+            <th scope="col">Date de sortie</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cheque of cheques | search: [numBordereau.value, numCheque.value,dateBordereau.value,numCompte.value,montant.value,devise.value]: ['numBordereau', 'numCheque','dateBordereau','numCompte','montant','devise'] | paginate :{itemsPerPage:4,currentPage: page,totalItems: count} let i = index ">
+            
+            <td>{{ cheque?.numCheque }}</td>
+            <td>{{ cheque?.bordereaux?.numBordereaux}}</td>
+            <td>{{ cheque?.bordereaux?.dateBordereaux}}</td>
+            <td>{{ cheque?.client?.numeroCompte }}</td>
+            <td>{{ cheque?.client?.agence?.nomAgence }} {{ cheque?.client?.prenom }}</td>
+            <td>{{ cheque?.client?.agence?.codeAgence }}</td>
+            <td>{{ cheque?.dateOuverture }}</td>
+            <td>{{ cheque?.devise?.label }}</td>
+            <td>{{ cheque?.montant }}</td>
+            <td>{{ cheque?.statut }}</td>
+            <td>{{ cheque?.dateSortie }}</td>
+            
+            
+      
+            
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="row">
+        <div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
+        </div>
+        <div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+          <div class="dataTables_paginate paging_simple_numbers" id="kt_subscriptions_table_paginate">
+            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+            </pagination-controls>
+          </div>
+        </div>
+      </div>
+    
+    </body>
+  </div>
