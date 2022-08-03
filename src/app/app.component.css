@@ -23,3 +23,7 @@ nav{
     font-size: 18px;
     background: #FFF;
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #244578 !important;
+}

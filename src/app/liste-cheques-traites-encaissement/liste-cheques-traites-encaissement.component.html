@@ -1,6 +1,8 @@
 <div class="container">
+  <app-sub-menu-liste></app-sub-menu-liste>
     <h3>Listes des chèques traités</h3>
     <body>
+      <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
       <table class="table table-striped table-valign-middle">
         <thead>
           <tr>
@@ -16,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cheque of cheques | paginate :{
+          <tr *ngFor="let cheque of cheques |filter:term| paginate :{
             itemsPerPage:4,
             currentPage: page,
             totalItems: count

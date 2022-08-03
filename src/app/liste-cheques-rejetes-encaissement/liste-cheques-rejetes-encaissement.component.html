@@ -1,1 +1,67 @@
-<p>liste-cheques-rejetes-encaissement works!</p>
+
+<div class="container">
+    <app-sub-menu-liste></app-sub-menu-liste>
+    
+    <h3>Listes des chèques rejetés par le service encaissement des chèques en devises 
+    </h3>
+      <body>
+        <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+        <table class="table table-striped table-valign-middle">
+          <thead>
+            <tr>
+              <th scope="col">N°bordereau</th>
+              <th scope="col">N°chéque</th>
+              <th scope="col">Montant</th>
+              <th scope="col">Devise</th>
+              <th scope="col">Date de saisie</th>
+              <th scope="col">Motif de rejet </th>
+              <th scope="col">Date de rejet</th>
+              <th scope="col">Reception</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cheque of cheques|filter:term | paginate :{
+              itemsPerPage:4,
+              currentPage: page,
+              totalItems: count
+            };
+            
+                let i = index" [ngStyle]="{'background-color':getColor(cheque?.dateRejetEncaissement,cheque?.dateReceptionAgence)}" >
+              
+              <td>{{ cheque?.bordereaux?.numBordereaux}}</td>
+              <td>{{ cheque?.numCheque }}</td>
+              <td>{{ cheque?.montant }}</td>
+              <td>{{ cheque?.devise?.label }}</td>
+              <td>{{ cheque?.bordereaux?.dateBordereaux }}</td>
+              <td>{{ cheque?.dateRejetEncaissement }}</td>
+              <td>{{ cheque?.motifRejet }}</td>
+              
+              
+              <td *ngIf="cheque?.dateReceptionAgence; else loggedOut">
+                {{ cheque?.dateRejetEncaissement }}
+              </td>
+              
+              <td>
+                <ng-template #loggedOut>
+                    <button type="button" class="btn btn-primary" (click)="chequeRecu(cheque?.id)"> Accusé de Reception </button>
+                </ng-template>
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="row">
+          <div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
+          </div>
+          <div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+            <div class="dataTables_paginate paging_simple_numbers" id="kt_subscriptions_table_paginate">
+              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+              </pagination-controls>
+            </div>
+          </div>
+        </div>
+      
+      </body>
+    </div>
+  

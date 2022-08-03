@@ -10,12 +10,18 @@ export class RechercheRemisesChequesComponent implements OnInit {
   cheques?:any;
   page: number = 1;
   count: number = 0;
-    numBordereau = new FormControl('');
-    numCheque = new FormControl(''); 
+  term!: string;
+
+    
+    numBordereauSearch ="";
+    numChequeSearch =""; 
     dateBordereau = new FormControl(''); 
     numCompte = new FormControl(''); 
     montant = new FormControl(''); 
     devise = new FormControl(''); 
+    
+  
+
   constructor(private chequeService : ChequeService) { }
 
   ngOnInit(): void {
@@ -38,4 +44,9 @@ export class RechercheRemisesChequesComponent implements OnInit {
         this.page = event;
         this.getListCheques();
       }
-}
+
+      
+      
+      
+
+    }

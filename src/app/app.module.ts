@@ -22,7 +22,9 @@ import { ListeChequesRejetesEncaissementComponent } from './liste-cheques-rejete
 import { ListeChequesRecuEncaissementComponent } from './liste-cheques-recu-encaissement/liste-cheques-recu-encaissement.component';
 import { ListeChequesTraitesEncaissementComponent } from './liste-cheques-traites-encaissement/liste-cheques-traites-encaissement.component';
 import { RechercheRemisesChequesComponent } from './recherche-remises-cheques/recherche-remises-cheques.component';
-import { SearchPipe } from './recherche-remises-cheques/search.pipe';
+import { SubMenuListeComponent } from './sub-menu-liste/sub-menu-liste.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { SearchPipe } from './recherche-remises-cheques/search.pipe';
     ListeChequesRecuEncaissementComponent,
     ListeChequesTraitesEncaissementComponent,
     RechercheRemisesChequesComponent,
-    SearchPipe,
+    SubMenuListeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { SearchPipe } from './recherche-remises-cheques/search.pipe';
     HttpClientModule,
     NgxImageZoomModule,
     NgxPaginationModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    Ng2SearchPipeModule,
 
   ],
   providers: [authInterceptorProviders,DatePipe],

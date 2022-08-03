@@ -23,4 +23,9 @@ chequesEnRouteEncaissement():void {
 SaisirChequesForm():void {
   this.router.navigate(['/saisirBordereau']);
 }
+
+Recherche():void {
+  this.router.navigate(['/RechercheRemisesCheques']);
+}
+
 }

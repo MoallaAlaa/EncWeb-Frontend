@@ -10,6 +10,7 @@ export class ListeChequesTraitesEncaissementComponent implements OnInit {
   cheques?:any;
   page: number = 1;
   count: number = 0;
+  term!: string;
   constructor(private chequeService : ChequeService) { }
 
   ngOnInit(): void {

@@ -16,6 +16,8 @@ export class SaisirBordereauComponent {
   phoneRegex: RegExp = /^((3[0-9])|(6[0-9])|(8[1-9])|(9[0-8]))[0-9]{6}$/;
   theDate: any;
   devises?:any;
+  imageSrc: string[] = [];
+
 
   constructor(private formBuilder: FormBuilder,private chequeService : ChequeService) { }
 
@@ -69,6 +71,7 @@ export class SaisirBordereauComponent {
   // add new form group to contacts array
   addContactField() {
     let control = <FormArray>this.bordereauForm.controls.cheques;
+    if(control.length < 6){
     control.push(
       this.formBuilder.group({
         numCheque: ['', Validators.required],
@@ -76,7 +79,7 @@ export class SaisirBordereauComponent {
         devise:['', Validators.required],
         photos: ['',Validators.required],
       })
-    );
+    );}
   }
 
   detectFiles(event:any, i:any) {
@@ -87,7 +90,7 @@ export class SaisirBordereauComponent {
         reader.onload = (e: any) => {
           
           this.cheques.controls[i].patchValue({ photos: e.target.result });
-
+          this.imageSrc[i]=reader.result as string;
           return e.target.result;
         };
         reader.readAsDataURL(file);
