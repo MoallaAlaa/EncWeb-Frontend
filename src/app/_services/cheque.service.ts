@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cheque } from '../models/cheque.model';
 import { Devise } from '../models/devise.model';
@@ -13,6 +13,7 @@ const DEVISE_URL = 'http://localhost:8080/api/devise';
   providedIn: 'root'
 })
 export class ChequeService {
+  httpClient: any;
 
   constructor(private http: HttpClient) { }
 
@@ -61,6 +62,18 @@ export class ChequeService {
 
   }
 
+  public Recherche(numBordereaux:any,numCheques:any,numCompte:any , devise: any , montant: any ,dateBordereaux: any): Observable<ChequeTraiteeEncaissement[]>{
+    
+    let params = new HttpParams()
+    .set('numBordereaux', numBordereaux)
+    .set('numCheques', numCheques)
+    .set('numCompte', numCompte)
+    .set('devise', devise)
+    .set('montant', montant)
+    .set('dateBordereaux', dateBordereaux);
+
+    return this.http.get<ChequeTraiteeEncaissement[]>(API_URL+'/Recherche', {params: params});
+  }
 
 
 

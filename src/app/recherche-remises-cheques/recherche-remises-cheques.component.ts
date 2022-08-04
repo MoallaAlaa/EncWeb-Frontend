@@ -11,26 +11,27 @@ export class RechercheRemisesChequesComponent implements OnInit {
   page: number = 1;
   count: number = 0;
   term!: string;
-
+  config: Object = {};
     
-    numBordereauSearch ="";
-    numChequeSearch =""; 
-    dateBordereau = new FormControl(''); 
-    numCompte = new FormControl(''); 
-    montant = new FormControl(''); 
-    devise = new FormControl(''); 
-    
+  form: any = {
+    numBordereaux: "",
+    numCheques: "",
+    numCompte: "",
+    devise: "",
+    montant: "",
+    dateBordereaux: "",
+  };
   
 
   constructor(private chequeService : ChequeService) { }
 
   ngOnInit(): void {
-    
+ 
     this.getListCheques();
   }
 
   getListCheques():void{
-    this.chequeService.getListeChequeTraiter().subscribe({
+    this.chequeService.Recherche("","","","","","").subscribe({
       next:(data)=>{
         this.cheques=data;
         console.log(data);
@@ -40,13 +41,20 @@ export class RechercheRemisesChequesComponent implements OnInit {
     
       }
 
-      onTableDataChange(event: any) {
-        this.page = event;
-        this.getListCheques();
+      onRecherche() :void {
+        const { numBordereaux, numCheques,numCompte,devise,montant,dateBordereaux } = this.form;
+        this.cheques=null;
+
+        console.log(numBordereaux, numCheques,numCompte,devise,montant,dateBordereaux);
+        this.chequeService.Recherche(numBordereaux,numCheques,numCompte,devise,montant,dateBordereaux).subscribe({
+          next:(data)=>{
+            this.cheques=data;
+            console.log(data);
+          },
+          error:(e)=>console.error(e)
+        });
+        
       }
-
-      
-      
-      
-
     }
+
+    

@@ -1,28 +1,97 @@
 
 <div class="container">
     <h3>Recherche Remise/chéques</h3>
-<!--
- <div>
-<label for="numBordereau">Numéro Bordereau</label>
-<input type="text" id="numBordereau" [formControl]="numBordereau"/>
-<label for="numCheque">Numéro Chéque </label>
-<input type="text" id="numCheque" [formControl]="numCheque"/>
-<label for="dateBordereau">Date Bordereau</label>
-<input type="text" id="dateBordereau" [formControl]="dateBordereau"/>
-<label for="numCompte">Numéro Compte Client </label>
-<input type="text" id="numCompte" [formControl]="numCompte"/>
-<label for="montant">Montant  </label>
-<input type="text" id="montant" [formControl]="montant"/>
-<label for="devise">Devise  </label>
-<input type="text" id="devise" [formControl]="devise"/>
 
+
+
+    <form
+    class="p-3 mt-3"
+    
+    name="form"
+    (ngSubmit)="onRecherche()"
+    #f="ngForm"
+    novalidate
+  >
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span> 
+      <input
+        type="text"
+        class="form-control"
+        name="numBordereaux"
+        [(ngModel)]="form.numBordereaux"
+        
+        #numBordereaux="ngModel"
+        id="numBordereaux" placeholder="N°Bordereau"/>
+    </div>
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span> 
+      <input
+        type="text"
+        class="form-control"
+        name="numCheques"
+        [(ngModel)]="form.numCheques"
+        #numCheques="ngModel"
+        id="numCheques" placeholder="N°Cheque"/>
     </div>
 
--->
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span> 
+      <input
+        type="text"
+        class="form-control"
+        name="numCompte"
+        [(ngModel)]="form.numCompte"
+        #numCompte="ngModel"
+        id="numCompte" placeholder="N°Compte"/>
+    </div>
 
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span> 
+      <input
+        type="text"
+        class="form-control"
+        name="devise"
+        [(ngModel)]="form.devise"
+        #devise="ngModel"
+        id="devise" placeholder="Devise"/>
+    </div>
+
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span> 
+      <input
+        type="text"
+        class="form-control"
+        name="montant"
+        [(ngModel)]="form.montant"
+        #montant="ngModel"
+        id="montant" placeholder="montant"/>
+    </div>
+
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span> 
+      <input
+        type="text"
+        class="form-control"
+        name="dateBordereaux"
+        [(ngModel)]="form.dateBordereaux"
+        #dateBordereaux="ngModel"
+        id="dateBordereaux" placeholder="dateBordereaux"/>
+    </div>
+
+        
+    
+    <div class="form-group">
+      <button class="btn btn-primary">
+        Rechercher
+      </button>
+    </div>
+  </form>
+
+
+    
 
     <body>
-      <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+     
       <table class="table table-striped table-valign-middle">
         <thead>
           
@@ -43,7 +112,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cheque of cheques |filter:term">
+          <tr *ngFor="let cheque of cheques ">
             
             <td>{{ cheque?.numCheque }}</td>
             <td>{{ cheque?.bordereaux?.numBordereaux}}</td>
